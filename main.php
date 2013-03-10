@@ -52,17 +52,18 @@ $showTools = !tpl_getConf('hideTools') || ( tpl_getConf('hideTools') && $_SERVER
           </button>
           <a class="brand" href="./"><?php echo $conf['title']; ?></a>
           <div class="nav-collapse collapse">
-            <div class="navbar-form pull-right">
-                <?php _tpl_output_search_bar(); ?>
-            </div>
 
             <p class="navbar-text pull-right">
+		<a href="https://twitter.com/pg_mag" class="twitter-follow-button"></a>
+ 		<script src="//platform.twitter.com/widgets.js" type="text/javascript"></script>
+		<a  class="btn btn-primary" href="http://pgmag.us2.list-manage.com/subscribe?u=d23db8f49246eb6e74c6ca21a&id=f1bf0dbe7d" class="media" title="Subscribe">
+		Subscribe !</a>
                 <?php
-                    if ($_SERVER['REMOTE_USER']) {
+                  /*  if ($_SERVER['REMOTE_USER']) {
                         echo '<span class="user">';
                         tpl_userinfo();
                         echo '</span>';
-                    }
+                    }*/
                     //TODO: If could link to user's profile? If so, wrap in:
                     //echo 'Logged in as <a href="#" class="navbar-link">'.$username.'</a>';
                 ?>
@@ -70,7 +71,7 @@ $showTools = !tpl_getConf('hideTools') || ( tpl_getConf('hideTools') && $_SERVER
             <ul class="nav">
               <?php
                 tpl_includeFile('nav.html');
-                _tpl_output_tools_twitter_bootstrap($conf['useacl'] && $showTools);
+                //_tpl_output_tools_twitter_bootstrap($conf['useacl'] && $showTools);
               ?>
             </ul>
 
@@ -91,9 +92,12 @@ $showTools = !tpl_getConf('hideTools') || ( tpl_getConf('hideTools') && $_SERVER
             <div class="span3">
               <?php if ($conf['sidebar']) { ?>
 
-                  <div class="sidebar-nav affix span3" id="sidetoc">
-                    <?php _tpl_toc_to_twitter_bootstrap(); ?>
-                  </div>
+                  <div class="sidebar-nav " id="sidetoc">
+                        <?php tpl_flush() ?>
+                        <?php tpl_includeFile('sidebarheader.html') ?>
+                        <?php tpl_include_page($conf['sidebar'], 1, 1) ?>
+                        <?php tpl_includeFile('sidebarfooter.html') ?>  
+		</div>
 
               <?php } ?>
             </div><!--/span-->
@@ -135,23 +139,26 @@ $showTools = !tpl_getConf('hideTools') || ( tpl_getConf('hideTools') && $_SERVER
 
           <div class="navbar-inner">
               <?php _tpl_output_page_tools($showTools, 'li'); ?>
-              <br />
+        <ul class="nav">
+	<?php
+	tpl_action('recent', 1, 'li');
+        tpl_action('media', 1, 'li');
+        tpl_action('index', 1, 'li');
+        tpl_action('admin', 1, 'li' );
+        _tpl_action('userpage', 1, 'li');
+        tpl_action('profile', 1, 'li');
+        tpl_action('register', 1, 'li');
+        tpl_action('login', 1, 'li');
+	?>
+	</ul>
+	<hr />
               <div class="clearer"></div>
               <div>
-              <?php tpl_pageinfo() /* 'Last modified' etc */ ?>
-
-              <?php tpl_license('button') /* content license, parameters: img=*badge|button|0, imgonly=*0|1, return=*0|1 */ ?>
+	      <?php tpl_license('button') /* content license, parameters: img=*badge|button|0, imgonly=*0|1, return=*0|1 */ ?>
               <?php tpl_indexerWebBug() /* provide DokuWiki housekeeping, required in all templates */ ?>
               <?php tpl_includeFile('footer.html') ?>
               </div>
               <div class="clearer"></div>
-              <div>
-                <p><a href="http://www.dokuwiki.org">DokuWiki</a>
-                    <a href="https://github.com/ryanwmoore/dokutwitterbootstrap">template</a>
-                    (released under <a href="http://www.gnu.org/licenses/gpl.html">GPLv2</a>)
-                    using <a href="http://twitter.github.com/bootstrap/">Bootstrap</a>
-                    by <a href="http://rmoore.cs.pitt.edu/">Ryan W. Moore</a></p>
-              </div>
           </div>
 
         </div>
