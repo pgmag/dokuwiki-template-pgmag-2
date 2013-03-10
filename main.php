@@ -42,7 +42,7 @@ $showTools = !tpl_getConf('hideTools') || ( tpl_getConf('hideTools') && $_SERVER
     <div id="dokuwiki__site"><div id="dokuwiki__top"
         class="dokuwiki site mode_<?php echo $ACT ?>">
 
-    <div class="navbar navbar-fixed-top">
+    <div class="navbar navbar-inverse navbar-fixed-top">
       <div class="navbar-inner">
         <div class="container-fluid">
           <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
@@ -52,22 +52,15 @@ $showTools = !tpl_getConf('hideTools') || ( tpl_getConf('hideTools') && $_SERVER
           </button>
           <a class="brand" href="./"><?php echo $conf['title']; ?></a>
           <div class="nav-collapse collapse">
-
-            <p class="navbar-text pull-right">
+	   <div class="btn-toolbar pull-right" id="main-menu-right">
+		<div class="btn-group">
 		<a href="https://twitter.com/pg_mag" class="twitter-follow-button"></a>
  		<script src="//platform.twitter.com/widgets.js" type="text/javascript"></script>
-		<a  class="btn btn-primary" href="http://pgmag.us2.list-manage.com/subscribe?u=d23db8f49246eb6e74c6ca21a&id=f1bf0dbe7d" class="media" title="Subscribe">
-		Subscribe !</a>
-                <?php
-                  /*  if ($_SERVER['REMOTE_USER']) {
-                        echo '<span class="user">';
-                        tpl_userinfo();
-                        echo '</span>';
-                    }*/
-                    //TODO: If could link to user's profile? If so, wrap in:
-                    //echo 'Logged in as <a href="#" class="navbar-link">'.$username.'</a>';
-                ?>
-            </p>
+		</div>
+		<div class="btn-group">
+		<a  class="btn btn-default" href="http://pgmag.us2.list-manage.com/subscribe?u=d23db8f49246eb6e74c6ca21a&id=f1bf0dbe7d" class="media" title="Subscribe">Subscribe !</a>
+		</div>
+            </div>
             <ul class="nav">
               <?php
                 tpl_includeFile('nav.html');
@@ -133,25 +126,24 @@ $showTools = !tpl_getConf('hideTools') || ( tpl_getConf('hideTools') && $_SERVER
     </div><!-- /wrapper -->
 
     <!-- ********** FOOTER ********** -->
-    <footer class="navbar navbar-static-bottom">
+    <footer class="navbar navbar-inverse navbar-static-bottom">
       <div class="row-fluid">
         <div class="span12">
 
           <div class="navbar-inner">
-              <?php _tpl_output_page_tools($showTools, 'li'); ?>
         <ul class="nav">
 	<?php
+         tpl_action('edit', 1, 'li');
+         tpl_action('revisions', 1, 'li');
+         tpl_action('subscribe', 1, 'li');
+         tpl_action('revert', 1, 'li');
 	tpl_action('recent', 1, 'li');
-        tpl_action('media', 1, 'li');
-        tpl_action('index', 1, 'li');
         tpl_action('admin', 1, 'li' );
-        _tpl_action('userpage', 1, 'li');
         tpl_action('profile', 1, 'li');
         tpl_action('register', 1, 'li');
         tpl_action('login', 1, 'li');
 	?>
 	</ul>
-	<hr />
               <div class="clearer"></div>
               <div>
 	      <?php tpl_license('button') /* content license, parameters: img=*badge|button|0, imgonly=*0|1, return=*0|1 */ ?>
