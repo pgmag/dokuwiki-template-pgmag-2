@@ -54,13 +54,8 @@ $showTools = !tpl_getConf('hideTools') || ( tpl_getConf('hideTools') && $_SERVER
           <a class="brand" href="./"><i class="icon-pg-logo "></i>&nbsp;<?php echo $conf['title']; ?></a>
           <div class="nav-collapse collapse">
 	   <div class="btn-toolbar pull-right" id="main-menu-right">
-		<div class="btn-group">
-		<a href="https://twitter.com/pg_mag" class="twitter-follow-button"></a>
- 		<script src="//platform.twitter.com/widgets.js" type="text/javascript"></script>
-		</div>
-		<div class="btn-group">
-		<a  class="btn btn-default" href="http://pgmag.us2.list-manage.com/subscribe?u=d23db8f49246eb6e74c6ca21a&id=f1bf0dbe7d" class="media" title="Subscribe"><i class="icon-envelope"></i> Subscribe !</a>
-		</div>
+		<a  class="btn btn-default" href="https://twitter.com/intent/follow?screen_name=pg_mag"><i class="icon-twitter"></i> Follow</a>
+		<a  class="btn btn-default" href="http://pgmag.us2.list-manage.com/subscribe?u=d23db8f49246eb6e74c6ca21a&id=f1bf0dbe7d" class="media" title="Subscribe"><i class="icon-envelope"></i> Subscribe</a>
             </div>
             <ul class="nav">
               <?php
