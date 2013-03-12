@@ -58,7 +58,7 @@ $showTools = !tpl_getConf('hideTools') || ( tpl_getConf('hideTools') && $_SERVER
  		<script src="//platform.twitter.com/widgets.js" type="text/javascript"></script>
 		</div>
 		<div class="btn-group">
-		<a  class="btn btn-default" href="http://pgmag.us2.list-manage.com/subscribe?u=d23db8f49246eb6e74c6ca21a&id=f1bf0dbe7d" class="media" title="Subscribe">Subscribe !</a>
+		<a  class="btn btn-default" href="http://pgmag.us2.list-manage.com/subscribe?u=d23db8f49246eb6e74c6ca21a&id=f1bf0dbe7d" class="media" title="Subscribe"><i class="icon-envelope"></i> Subscribe !</a>
 		</div>
             </div>
             <ul class="nav">
