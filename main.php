@@ -27,7 +27,8 @@ $showTools = !tpl_getConf('hideTools') || ( tpl_getConf('hideTools') && $_SERVER
     <link href="<?php echo tpl_getMediaFile(array("css/dokuwikicompatibility.css")); ?>" rel="stylesheet">
     <link href="<?php echo tpl_getMediaFile(array("css/bootstrap.min.css")); ?>" rel="stylesheet">
     <link href="<?php echo tpl_getMediaFile(array("css/bootstrap-responsive.min.css")); ?>" rel="stylesheet">
-
+  <link rel="stylesheet" href="<?php echo tpl_getMediaFile(array("css/font-awesome.css")); ?>">
+  <link rel="stylesheet" href="<?php echo tpl_getMediaFile(array("css/pgFont.css")); ?>">
 </head>
 
 <body data-spy="scroll" data-target="#sidetoc">
@@ -50,7 +51,7 @@ $showTools = !tpl_getConf('hideTools') || ( tpl_getConf('hideTools') && $_SERVER
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="brand" href="./"><?php echo $conf['title']; ?></a>
+          <a class="brand" href="./"><i class="icon-pg-logo "></i>&nbsp;<?php echo $conf['title']; ?></a>
           <div class="nav-collapse collapse">
 	   <div class="btn-toolbar pull-right" id="main-menu-right">
 		<div class="btn-group">

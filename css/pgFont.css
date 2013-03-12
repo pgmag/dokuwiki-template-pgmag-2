@@ -17,4 +17,8 @@
   -webkit-font-smoothing: antialiased;
 }
 
+/*
 .icon-pg-logo:before                { content: "\0065"; }
+*/
+.icon-pg-logo:before                { content: "\0066"; }
+
